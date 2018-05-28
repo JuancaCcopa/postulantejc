@@ -1,0 +1,41 @@
+
+<app-home></app-home>
+<br/>
+<div class="row">
+
+<div class="col-md-5">
+    <div class="container">
+    <h2>Registrar Charla</h2>
+    <label>Tema</label>
+    <input type="text" style="text-transform:uppercase" class="form-control" [(ngModel)]="charla.tema" />
+    <br/>
+    <label>Expositor</label>
+    <select class="form-control" [(ngModel)]="charla.expositor_id">
+            <option *ngFor='let exporitor of exporitores' [value]="exporitor.expositor_id">
+                    {{exporitor.nombre}}
+            </option>
+    </select>
+    <br/>
+    <label>Sala</label>
+    <select class="form-control" [(ngModel)]="charla.salas_id">
+            <option *ngFor='let sala of salas' [value]="sala.sala_id">
+                    {{sala.nombresala}}
+            </option>
+    </select>
+    <br/>
+    <a class="btn btn-primary" (click)="saveCharla()">Save</a>
+</div>
+</div>
+
+
+<div class="col-md-7">
+    <div class="container">
+    <h2>Reporte de Charla </h2>
+    <ul class="list-group" style="text-transform:uppercase">
+        <ng-container *ngFor="let charla of charlas">
+                <li class="list-group-item">Tema: {{charla.tema}}</li>
+        </ng-container>
+    </ul>
+</div>
+</div>
+

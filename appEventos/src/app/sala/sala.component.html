@@ -1,0 +1,32 @@
+<app-home></app-home>
+<br/>
+<div class="row">
+
+<div class="col-md-5">
+    <div class="container">
+    <h2>Registrar Sala</h2>
+    <label>Nombre Completo</label>
+    <input type="text" style="text-transform:uppercase" class="form-control" [(ngModel)]="sala.nombresala" />
+    <br/>
+    <label>Maximo Asistente</label>
+    <input type="number" class="form-control" [(ngModel)]="sala.maximo_asistente"/>
+    <br/>
+    <a class="btn btn-primary" (click)="saveSala()">Save</a>
+</div>
+</div>
+
+
+<div class="col-md-7">
+    <div class="container">
+    <h2>Reporte de Sala </h2>
+    <ul class="list-group" style="text-transform:uppercase">
+        <ng-container *ngFor="let sala of salas">
+                <li class="list-group-item">Nombre Sala: {{sala.nombresala}}  Capacidad: {{sala.maximo_asistente}}</li>
+        </ng-container>
+    </ul>
+</div>
+</div>
+
+
+
+

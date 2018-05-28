@@ -1,0 +1,32 @@
+<app-home></app-home>
+<br/>
+<div class="row">
+
+<div class="col-md-5">
+    <div class="container">
+    <h2>Registrar Expositor</h2>
+    <label>Nombre Completo</label>
+    <input type="text" style="text-transform:uppercase" class="form-control" [(ngModel)]="expositor.nombre" />
+    <br/>
+    <label>Edad</label>
+    <input type="number" class="form-control" [(ngModel)]="expositor.edad"/>
+    <br/>
+    <a class="btn btn-primary" (click)="saveExpositor()">Save</a>
+</div>
+</div>
+
+
+<div class="col-md-7">
+    <div class="container">
+    <h2>Reporte de Expositor </h2>
+    <ul class="list-group">
+        <ng-container *ngFor="let expositor of expositores">
+                <li class="list-group-item">Nombre Expositor: {{expositor.nombre}}  Edad: {{expositor.edad}}</li>
+        </ng-container>
+    </ul>
+</div>
+</div>
+
+
+
+
