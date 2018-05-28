@@ -4,13 +4,10 @@ header("Access-Control-Allow-Origin: *");
 
  	$data = json_decode($_POST['datos']);
     $usuario = $data->usuario;
-    //$postalCode = $data->password	;
-    //$returnData = json_encode($data);
+   
    $validateResul=validateDominio($usuario);
    $message	=$validateResul != 'ok' ? $validateResul : 'ok';
 
-   //$json = '{"message":'$message'}';
-   //$dJson=json_decode($json);
 
    $arr = array('message' => $message);
 
