@@ -23,6 +23,8 @@ import { HorariosServices } from './services/horario.service';
 import { AsistenteServices } from './services/asistente.service';
 import { SalaServices } from './services/sala.service.';
 import { ExpositorServices } from './services/expositor.service';
+import { LoginServices } from './services/login.service';
+
 
 import {GlobalService} from './global.component';
 
@@ -65,6 +67,7 @@ const appRoutes: Routes=[
     AsistenteServices,
     SalaServices,
     ExpositorServices,
+    LoginServices,
     GlobalService
   ],
   bootstrap: [AppComponent]

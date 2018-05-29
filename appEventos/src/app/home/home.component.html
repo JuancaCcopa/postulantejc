@@ -2,7 +2,7 @@
  <!--navbar navbar-dark bg-dark-->
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand/logo-->
-    <a class="navbar-brand" href="#">Angular</a>
+    <a class="navbar-brand" style="color: white">Angular</a>
      
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,27 +10,42 @@
 
     <!-- Links -->
     <div class="collapse navbar-collapse" id="navbarsExample01">
+            <div *ngIf="tipo=='Admin'; else invitado">
             <ul class="navbar-nav mr-auto nav-item">
-              <li routerLinkActive="active">
-                  <a class="nav-link" routerLink="/asistente">Asistente</a>
-              </li>
-              <li routerLinkActive="active">
-                    <a class="nav-link" routerLink="/sala">Sala</a>
-                </li>
-              <li routerLinkActive="active">
-                  <a class="nav-link" routerLink="/charla">Charla</a>
-              </li>
-              <li routerLinkActive="active">
-                  <a class="nav-link" routerLink="/expositor">Expositor</a>
-              </li>
-              <li routerLinkActive="active">
-                  <a class="nav-link" routerLink="/horario">Horario</a>
-              </li>
+                        <li routerLinkActive="active">
+                            <a class="nav-link" routerLink="/asistente">Asistente</a>
+                        </li>
+                        <li routerLinkActive="active">
+                                <a class="nav-link" routerLink="/sala">Sala</a>
+                            </li>
+                        <li routerLinkActive="active">
+                            <a class="nav-link" routerLink="/charla">Charla</a>
+                        </li>
+                        <li routerLinkActive="active">
+                            <a class="nav-link" routerLink="/expositor">Expositor</a>
+                        </li>
+                        <li routerLinkActive="active">
+                            <a class="nav-link" routerLink="/horario">Horario</a>
+                        </li>
             </ul>
-            <form class="form-inline my-2 my-md-0">
+        </div>
+        <ng-template #invitado>
+            <ul class="navbar-nav mr-auto nav-item">
+                <li routerLinkActive="active">
+                    <a class="nav-link" routerLink="/asistente">Asistente</a>
+                </li>
+            </ul>
+        </ng-template>
+        <div class="col-lg-8 d-flex justify-content-end">
+            <a class="navbar-brand" routerLink="/">[Salir]</a>
+            <a class="navbar-brand" style="color: white">{{tipo}}</a>
+            <form class="form-inline my-2 my-md-0">    
               <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             </form>
+        </div>
     </div>
+
+    
     
 </nav>
 <!--<app-sala></app-sala>-->

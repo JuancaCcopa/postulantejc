@@ -1,4 +1,6 @@
 export interface userinterface
 {
-    message:string
+    result:boolean
+    mensaje:string
+    tipo:string
 }

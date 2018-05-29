@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-
+import { LoginServices } from "../services/login.service";
 
 @Component(
     {
@@ -10,12 +10,8 @@ import { Component } from "@angular/core";
 export class HomeComponent
     {
         
-        
-        /*saveSala()
-        {
-            this.sala.sala_id= this.salas.length +1;
-            this.salaServices.saveSala(this.sala);
-        }*/
-        
+        constructor (private loginServices:LoginServices){}
+        tipo=this.loginServices.tipo;        
+                
                 
     }

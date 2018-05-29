@@ -14,8 +14,6 @@ export class AsistenteServices{
         return this.asistentes;
     }
 
-  
-
     public saveAsistente(asistente)
     {
         this.asistentes.push(asistente);

@@ -5,9 +5,10 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 import {userinterface} from './datos.interfaz'
 import { PARAMETERS } from "@angular/core/src/util/decorators";
+import { LoginServices } from "../services/login.service";
+
 
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
-
 
 @Component(
     {
@@ -20,10 +21,12 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 export class LoginComponent
     {
 
-
-        user:any={login:'postulante@tektonlabs.com',password:'123'};
+        
+        user:any={login:'admin@tektonlabs.com',password:'123'};
         message:any;
-        constructor(private router: Router,private http: HttpClient) { 
+        resultMessage:any=true;
+        constructor(private router: Router,private http: HttpClient,private loginServices:LoginServices) { 
+            
         } 
 
         entrar(event)
@@ -35,14 +38,16 @@ export class LoginComponent
                 let sendData={usuario:usuario,password:password};
                 let formData = new FormData();
   		        formData.append('datos', JSON.stringify(sendData));
-
-                this.http.post<userinterface>('http://localhost/api/validate.php',formData).subscribe(
+                //http://wreckful-sprayers.000webhostapp.com
+                this.http.post<userinterface>('http://wreckful-sprayers.000webhostapp.com/api/validate.php',formData).subscribe(
                     res => {
-                        
-                        if(res.message!='ok')
+                        console.log(res);
+                        if(!res.result)
                         {
-                            this.message=res.message;
+                            this.resultMessage=res.result;
+                            this.message=res.mensaje;
                         }else{
+                            this.loginServices.tipo=res.tipo;
                             this.router.navigate(['/home']);
                         }
                     },
